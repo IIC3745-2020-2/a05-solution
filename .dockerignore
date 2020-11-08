@@ -1,0 +1,9 @@
+*
+
+!app
+!bin
+!spec
+!.rspec
+!.rubocop.yml
+!Gemfile*
+!mutate.sh
