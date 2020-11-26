@@ -7,13 +7,13 @@ class DCCBurger
   def order!(type, choice, wallet_money)
     validate_type! type
 
-    if type == 'custom'
+    if type === 'custom'
       validate_ingredients! choice
       validate_bread_type! choice
       validate_veggie! choice
 
       custom_burger_price choice
-    elsif type == 'original'
+    else
       validate_availability! choice
     end
 
@@ -37,7 +37,7 @@ class DCCBurger
   private
 
   def raise_error(message)
-    raise StandardError, message
+    raise message
   end
 
   def validate_type!(type)
@@ -76,7 +76,7 @@ class DCCBurger
     return unless custom_burger.veggie
 
     custom_burger.ingredients.each do |ingredient|
-      if ingredient.type == 'non-veggie'
+      if ingredient.type === 'non-veggie'
         raise_error 'Quieres una hamburguesa veggie pero tiene un ingrediente no veggie'
       end
     end
